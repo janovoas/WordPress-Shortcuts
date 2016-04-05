@@ -1,0 +1,22 @@
+   <!-- CAT LIST -->                     
+  	<?php
+		if (is_category()) {
+		  $this_category = get_category($cat);
+		}
+    ?>
+    <?php
+		if($this_category->category_parent)
+		  $this_category = wp_list_categories('hide_empty=0&orderby=term_group&show_count=0&pad_counts=0&title_li=&child_of='.$this_category->category_parent.
+		"&echo=0"); 
+		  else
+		$this_category = wp_list_categories('hide_empty=0&orderby=term_group&depth=1&hierarchical=1&show_count=0&pad_counts=0&title_li=&child_of='.$this_category->cat_ID.
+		"&echo=0");
+		
+		if ($this_category) { 
+	?> 
+
+<ul class="aa">
+<?php echo $this_category; ?>
+</ul>
+
+<?php } ?>
