@@ -1,0 +1,9 @@
+// CUSTOM FOLDER UPLOADS
+global $current_user;
+
+$upload_dir = wp_upload_dir();
+$user_dirname = $upload_dir['basedir'].'/customfolder/'.$current_user->user_login.'/';
+if ( ! file_exists( $user_dirname ) ) {
+  wp_mkdir_p( $user_dirname );
+}
+$mu = move_uploaded_file( $_FILES['doc-file']['tmp_name'], $user_dirname.$docnameVariable );
